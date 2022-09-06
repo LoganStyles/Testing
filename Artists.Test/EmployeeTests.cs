@@ -19,4 +19,37 @@ public class EmployeeTests
             Assert.Equal(3, employeeCount);
         }
     }
+
+    [Fact]
+    public void Add_WhenCalled_InsertsAnEmployee()
+    {
+
+        var factory = new ContextFactory();
+        var context = factory.CreateContext();
+
+        var employee = new Employee
+        {
+
+            FirstName = "Campbell",
+            LastName = "Akpan",
+            Age = 23
+        };
+
+        context.Employees.Add(employee);
+        context.SaveChanges();
+
+        var employeeCount = context.Employees.Count();
+        if (employeeCount != 0)
+        {
+            Assert.Equal(4, employeeCount);
+        }
+
+        var lastEmployee = context.Employees
+                                .OrderBy(emp => emp.Id)
+                                .LastOrDefault();
+        if (lastEmployee != null)
+        {
+            Assert.Equal("Campbell", lastEmployee.FirstName);
+        }
+    }
 }
