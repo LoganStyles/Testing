@@ -19,6 +19,4 @@ public class EmployeeTests
             Assert.Equal(3, employeeCount);
         }
     }
-
-
 }
