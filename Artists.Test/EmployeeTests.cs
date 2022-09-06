@@ -18,6 +18,7 @@ public class EmployeeTests : IDisposable
 
         this._context = CreateContext();
     }
+
     [Fact]
     public void VerifyThatEmployeesExist()
     {
