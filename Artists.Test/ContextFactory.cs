@@ -8,7 +8,6 @@ public class ContextFactory : IDisposable
 {
 
     private readonly SqliteConnection _connection;
-    private readonly ArtistsContext _context;
 
     public ContextFactory()
     {
