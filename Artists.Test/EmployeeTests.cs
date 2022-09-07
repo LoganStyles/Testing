@@ -10,10 +10,14 @@ public class EmployeeTests
     public void VerifyThatEmployeesExist()
     {
 
-        var factory = new ContextFactory();
-        var context = factory.CreateContext();
+        //Arrange
+        using var factory = new ContextFactory();
+        using var context = factory.CreateContext();
 
+        //Act
         var employeeCount = context.Employees.Count();
+
+        //Assert
         if (employeeCount != 0)
         {
             Assert.Equal(3, employeeCount);
