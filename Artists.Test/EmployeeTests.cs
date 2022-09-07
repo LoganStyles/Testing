@@ -10,8 +10,8 @@ public class EmployeeTests
     public void VerifyThatEmployeesExist()
     {
 
-        var factory = new ContextFactory();
-        var context = factory.CreateContext();
+        using var factory = new ContextFactory();
+        using var context = factory.CreateContext();
 
         var employeeCount = context.Employees.Count();
         if (employeeCount != 0)
@@ -24,8 +24,8 @@ public class EmployeeTests
     public void Add_WhenCalled_InsertsAnEmployee()
     {
 
-        var factory = new ContextFactory();
-        var context = factory.CreateContext();
+        using var factory = new ContextFactory();
+        using var context = factory.CreateContext();
 
         var employee = new Employee
         {
